@@ -1,0 +1,11 @@
+
+    # for each student to warn send mail 
+    for i in range(0, len(li)): 
+        to_id = li[i] 
+        message = MIMEMultipart() 
+        message['Subject'] = 'Attendance report'
+        message.attach(MIMEText(msg, 'plain')) 
+        content = message.as_string() 
+        s.sendmail(from_id, to_id, content) 
+        s.quit() 
+    print("mail sent to students") 
